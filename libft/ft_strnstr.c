@@ -38,31 +38,31 @@ char	*strnstr(const char *big, const char *little, size_t len)
 	return (NULL);
 }
 
-#include <stdio.h>
-#include <string.h>
-int main() {
-    const char *haystack = "Hello, world!";
-    const char *needle = "world";
-    size_t len = 10;
+// #include <stdio.h>
+// #include <string.h>
+// int main() {
+//     const char *haystack = "Hello, world!";
+//     const char *needle = "world";
+//     size_t len = 10;
 
-    // Usando la función original strnstr
-    char *result_original = strnstr(haystack, needle, len);
+//     // Usando la función original strnstr
+//     char *result_original = strnstr(haystack, needle, len);
     
-    // Usando tu función personalizada ft_strnstr
-    char *result_custom = ft_strnstr(haystack, needle, len);
+//     // Usando tu función personalizada ft_strnstr
+//     char *result_custom = ft_strnstr(haystack, needle, len);
 
-    // Imprimir resultados
-    if (result_original != NULL) {
-        printf("strnstr: La subcadena '%s' se encuentra en: %s\n", needle, result_original);
-    } else {
-        printf("strnstr: La subcadena '%s' no se encuentra en los primeros %zu caracteres.\n", needle, len);
-    }
+//     // Imprimir resultados
+//     if (result_original != NULL) {
+//         printf("strnstr: La subcadena '%s' se encuentra en: %s\n", needle, result_original);
+//     } else {
+//         printf("strnstr: La subcadena '%s' no se encuentra en los primeros %zu caracteres.\n", needle, len);
+//     }
 
-    if (result_custom != NULL) {
-        printf("ft_strnstr: La subcadena '%s' se encuentra en: %s\n", needle, result_custom);
-    } else {
-        printf("ft_strnstr: La subcadena '%s' no se encuentra en los primeros %zu caracteres.\n", needle, len);
-    }
+//     if (result_custom != NULL) {
+//         printf("ft_strnstr: La subcadena '%s' se encuentra en: %s\n", needle, result_custom);
+//     } else {
+//         printf("ft_strnstr: La subcadena '%s' no se encuentra en los primeros %zu caracteres.\n", needle, len);
+//     }
 
-    return 0;
-}
+//     return 0;
+// }

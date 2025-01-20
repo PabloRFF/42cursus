@@ -12,7 +12,7 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
-#include <stddef.h>
+#include <stdlib.h>
 
 int	ft_atoi(const char *str);
 int	ft_isalnum(int c);
@@ -29,5 +29,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t n);
 void	*ft_memmove(void *dest, void *src, size_t n);
 void	*ft_memcpy(void *dest_str, void *src_str, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
+void *ft_calloc(size_t nitems, size_t size);
+char    *ft_itoa(int n);
 
 #endif

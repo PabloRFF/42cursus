@@ -29,3 +29,12 @@ char	*ft_strchr(const char *str, int c)
 		return ((char *)(str + i)); 
 	return NULL;
 }
+
+// #include <stdio.h>
+// int main()
+// {
+// 	char *str = "Hello World!";
+// 	char c = 'o';
+// 	printf("%s\n", ft_strchr(str, c));
+// 	return 0;
+// }
