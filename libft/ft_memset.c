@@ -20,10 +20,9 @@ void	*ft_memset(void *str, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if(i < n)
+		if (i < n)
 			ptr[i] = c;
 		i++;
 	}
-	
 	return str;
 }
