@@ -6,13 +6,14 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 18:22:52 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/15 21:00:13 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/01/22 20:02:47 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 #include <stdlib.h>
+#include <stdio.h>
 
 int	ft_atoi(const char *str);
 int	ft_isalnum(int c);
@@ -33,5 +34,7 @@ void    *ft_calloc(size_t nitems, size_t size);
 char    *ft_itoa(int n);
 char    *ft_strdup(const char *s);
 char    *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	*ft_strchr(const char *str, int c);
+char    *ft_strtrim(char const *s1, char const *set);
 
 #endif
