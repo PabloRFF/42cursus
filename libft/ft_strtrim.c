@@ -20,7 +20,7 @@ char    *ft_strtrim(char const *s1, char const *set)
 	return (str);
 }
 
-int main(void)
+/* int main(void)
 {
     char *s1 = "   xxffxHellxo Worldfxxx   ";
     char *set = " xf";
@@ -39,4 +39,4 @@ int main(void)
         printf("MALLOC failed\n");
     }
     return 0;
-}
+} */

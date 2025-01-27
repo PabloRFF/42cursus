@@ -12,45 +12,49 @@
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	if (dest == NULL && src == NULL)
-		return NULL;
-	unsigned char	*d = dest;
-	unsigned char	*s = src;
+	unsigned char		*d;
+	const unsigned char	*s;
 
-	if (d > s && d < s + n)
+	if (!dest && !src)
+		return (NULL);
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
+	if (d > s && d < (s + n))
 	{
 		d += n;
 		s += n;
 		while (n--)
-		{
 			*(--d) = *(--s);
-		}
 	}
-	else
-	{
+	else	
 		while (n--)
-		{
 			*d++ = *s++;
-		}		
-	}
-	return dest;
+	return (dest);
 }
+/* 
+#include <string.h>
 
-// #include <string.h>  // Para memmove
-// #include <stdio.h>
-// int main() {
-//     char arr1[] = "ABCDEFGHI";  // Arreglo original
-//     char arr2[] = "ABCDEFGHI";  // Arreglo original
+int main(void)
+{
+    char buffer1[50] = "Hello, World!";
+    char buffer2[50];
 
-//     // Queremos mover los 3 primeros caracteres (ABC) a la posición donde está 'E'
-//     memmove(arr1 + 4, arr1, 3);  // Copia de arr[0..2] a arr[4..6]
+    // Test non-overlapping
+    ft_memmove(buffer2, buffer1, strlen(buffer1) + 1);
+    printf("Non-overlapping: %s\n", buffer2);
 
-// 	ft_memmove(arr2 + 4, arr2, 3);
+    // Test overlapping (src before dest)
+    ft_memmove(buffer1 + 7, buffer1, 6); // Move "Hello" to "World!"
+    printf("Overlapping (src before dest): %s\n", buffer1);
 
-//     printf("Resultado original: %s\n", arr1);  // Esperado: "ABCDEFABC"
-// 	printf("Resultado mi funcion: %s\n", arr2);  // Esperado: "ABCDEFABC"
+    // Reset buffer1
+    strcpy(buffer1, "Hello, World!");
 
-//     return 0;
-// }
+    // Test overlapping (dest before src)
+    ft_memmove(buffer1, buffer1 + 7, 6); // Move "World!" to "Hello"
+    printf("Overlapping (dest before src): %s\n", buffer1);
+
+    return 0;
+} */
