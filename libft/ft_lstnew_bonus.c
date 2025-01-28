@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 15:20:56 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/28 17:17:25 by pablrome         ###   ########.fr       */
+/*   Created: 2025/01/28 19:32:09 by pablrome          #+#    #+#             */
+/*   Updated: 2025/01/28 20:37:52 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int c)
+t_list	*ft_lstnew(void *content)
 {
-	const char	*last_occurrence;
+	t_list	*node;
 
-	last_occurrence = NULL;
-	while (*str)
-	{
-		if (*str == (char)c)
-			last_occurrence = str;
-		str++;
-	}
-	if ((char)c == '\0')
-		return ((char *)str);
-	return ((char *)last_occurrence);
+	node = malloc(sizeof(t_list));
+	if (node == NULL)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }

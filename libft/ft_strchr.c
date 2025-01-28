@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 15:09:50 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/16 15:18:52 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/01/28 17:19:32 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,17 @@
 
 char	*ft_strchr(const char *str, int c)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-
 	while (str[i] != '\0')
 	{
 		if (str[i] == (char)c)
-			return (char *)(str + i);
+			return ((char *)&str[i]);
 		i++;
 	}
-
-	if (c == '\0')
-		return ((char *)(str + i)); 
+	if ((char)c == str[i])
+		return ((char *)&str[i]);
 	return (NULL);
 }
 

@@ -6,15 +6,15 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:40:48 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/14 16:52:51 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/01/28 19:02:04 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_toupper(int c)
+#include "libft.h"
+
+int	ft_toupper(int c)
 {
-    if (c >= 'a' && c <= 'z')
-    {
-        return c - 'a' + 'A';
-    }
-    return c;
+	if (c >= 'a' && c <= 'z')
+		return (c - 'a' + 'A');
+	return (c);
 }

@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:30:14 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/23 19:48:59 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/01/28 18:23:54 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 int	count_words(char const *str, char c)
 {
-	int i;
-	int count_words;
-	
+	int	i;
+	int	count_words;
+
 	if (!str)
-		return 0;
+		return (0);
 	i = 0;
 	count_words = 0;
 	while (str[i] != '\0')
 	{
-		// Si encontramos un carácter diferente de 'c' y es el primer carácter o después de un espacio
 		if (str[i] != c && (i == 0 || str[i - 1] == c))
 			count_words++;
 		i++;
@@ -33,17 +32,20 @@ int	count_words(char const *str, char c)
 
 char	*get_next_word(char const *s, int *index, char c)
 {
-	int start = *index;
+	int	start;
+	int	end;
+
+	start = *index;
 	while (s[start] == c && s[start] != '\0')
 		start++;
-	int end = start;
+	end = start;
 	while (s[end] != c && s[end] != '\0')
 		end++;
 	*index = end;
-	return ft_substr(s, start, end - start);
+	return (ft_substr(s, start, end - start));
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**result;
 	int		n_words;
@@ -53,8 +55,9 @@ char **ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	n_words = count_words(s, c);
-	if (!s || !(result = (char **)malloc(sizeof(char *) * (n_words + 1))))
-		return NULL;
+	result = (char **)malloc(sizeof(char *) * (n_words + 1));
+	if (!s || !result)
+		return (NULL);
 	while (j < n_words)
 	{
 		result[j] = get_next_word(s, &i, c);
@@ -63,12 +66,12 @@ char **ft_split(char const *s, char c)
 			while (j > 0)
 				free(result[--j]);
 			free(result);
-			return NULL;
+			return (NULL);
 		}
 		j++;
 	}
 	result[j] = NULL;
-	return result;
+	return (result);
 }
 
 /* int main(void)

@@ -6,16 +6,18 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:34:35 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/14 16:49:55 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/01/28 17:45:58 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isalnum(int c)
 {
 	if ((c > 64 && c < 91) || (c > 96 && c < 123) || (c > 47 && c < 58))
-		return 1;
+		return (1);
 	else
-		return 0;
+		return (0);
 }
 // #include <stdio.h>
 // int main()

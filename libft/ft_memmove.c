@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:33:50 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/15 19:08:03 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/01/28 18:55:45 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		while (n--)
 			*(--d) = *(--s);
 	}
-	else	
+	else
 		while (n--)
 			*d++ = *s++;
 	return (dest);

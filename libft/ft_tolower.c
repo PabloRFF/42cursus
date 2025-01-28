@@ -6,15 +6,17 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:40:28 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/14 16:53:51 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/01/28 19:02:50 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+#include "libft.h"
+
+int	ft_tolower(int c)
 {
-    if (c >= 'A' && c <= 'Z')
-    {
-        return c - 'A' + 'a';
-    }
-    return c;
+	if (c >= 'A' && c <= 'Z')
+	{
+		return (c - 'A' + 'a');
+	}
+	return (c);
 }

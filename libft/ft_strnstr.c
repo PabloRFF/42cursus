@@ -6,63 +6,47 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 15:23:30 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/16 16:09:01 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/01/28 17:15:52 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
-char	*strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	j;
 	size_t	l_len;
-	
-	if (*little == '\0')
-		return (char *)big;
+
 	i = 0;
+	if (little[i] == '\0')
+		return ((char *)big);
 	l_len = ft_strlen(little);
-	
-	while (i + l_len <= len && big[i] != '\0')
+	while (big[i] != '\0' && i + l_len <= len)
 	{
-		if (big[i] == little[0])
-		{
-			j = 0;
-			while (j < l_len && big[i + j] != little[j])
-				j++;
-			if (j == l_len)
-				return ((char *)&big[i]);
-		}
+		j = 0;
+		while (j < l_len && big[i + j] == little[j])
+			j++;
+		if (j == l_len)
+			return ((char *)&big[i]);
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
 
-// #include <stdio.h>
-// #include <string.h>
-// int main() {
-//     const char *haystack = "Hello, world!";
-//     const char *needle = "world";
-//     size_t len = 10;
+/* int main()
+{
+	const char *big = "Hello, World!";
+	const char *little = "World";
+	size_t len = 13;
+	//char *result = ft_strnstr(big, little, len);
+	char *result_two = ft_strnstr(NULL, "fake", 3);
 
-//     // Usando la función original strnstr
-//     char *result_original = strnstr(haystack, needle, len);
-    
-//     // Usando tu función personalizada ft_strnstr
-//     char *result_custom = ft_strnstr(haystack, needle, len);
+	if (result_two)
+		printf("Found: %s\n", result_two);
+	else
+		printf("Not found\n");
 
-//     // Imprimir resultados
-//     if (result_original != NULL) {
-//         printf("strnstr: La subcadena '%s' se encuentra en: %s\n", needle, result_original);
-//     } else {
-//         printf("strnstr: La subcadena '%s' no se encuentra en los primeros %zu caracteres.\n", needle, len);
-//     }
-
-//     if (result_custom != NULL) {
-//         printf("ft_strnstr: La subcadena '%s' se encuentra en: %s\n", needle, result_custom);
-//     } else {
-//         printf("ft_strnstr: La subcadena '%s' no se encuentra en los primeros %zu caracteres.\n", needle, len);
-//     }
-
-//     return 0;
-// }
+	return 0;
+} */
