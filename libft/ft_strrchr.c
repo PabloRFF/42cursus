@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 15:20:56 by pablrome          #+#    #+#             */
-/*   Updated: 2025/02/03 17:02:27 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:37:41 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,11 @@ char	*ft_strrchr(const char *str, int c)
 		return ((char *)str);
 	return ((char *)last_occurrence);
 }
+
+/* int main()
+{
+	char *str = "Hello World!";
+	char c = 'o';
+	printf("%s\n", ft_strrchr(str, c));
+	return 0;
+} */

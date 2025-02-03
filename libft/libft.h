@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 18:22:52 by pablrome          #+#    #+#             */
-/*   Updated: 2025/02/03 16:36:38 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:41:37 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 t_list	*ft_lstnew(void *content);
+void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
