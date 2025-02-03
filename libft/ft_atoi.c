@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:43:20 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/28 17:43:55 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:21:52 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,9 @@ int	ft_atoi(char *str)
 	return (result * sign);
 }
 
-// #include <stdio.h>
-// int main()
-// {
-//     char str[] = "1234aa";
-//     printf("%d\n", ft_atoi(str));
-//     return 0;
-// }
+/* int main()
+{
+    char str[] = "1234aa";
+    printf("%d\n", ft_atoi(str));
+    return 0;
+} */

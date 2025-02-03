@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:41:51 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/28 17:42:40 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/02/03 15:07:18 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub[i] = '\0';
 	return (sub);
 }
+/* int main()
+{
+	char *str = "Maravilloso dia de enero";
+	int start = 6;
+	size_t i = 9;
+
+	printf("Substr = %s\n", ft_substr(str, start, i));
+	return 0;
+} */

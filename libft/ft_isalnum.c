@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 13:34:35 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/28 17:45:58 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:37:11 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ int	ft_isalnum(int c)
 	else
 		return (0);
 }
-// #include <stdio.h>
-// int main()
-// {
-//     char str1 = 'C';
-//     char str2 = '^';
 
-//     printf("Resultado para \"%c\": %d\n", str1, ft_isalnum(str1));
-//     printf("Resultado para \"%c\": %d\n", str2, ft_isalnum(str2));
+/* int main()
+{
+    char str1 = 'C';
+    char str2 = '^';
 
-//     return 0;
-// }
+    printf("Resultado para \"%c\": %d\n", str1, ft_isalnum(str1));
+    printf("Resultado para \"%c\": %d\n", str2, ft_isalnum(str2));
+
+    return 0;
+} */

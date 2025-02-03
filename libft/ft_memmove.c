@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:33:50 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/28 18:55:45 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:56:47 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 			*d++ = *s++;
 	return (dest);
 }
+
 /* 
 #include <string.h>
 
@@ -41,19 +42,18 @@ int main(void)
     char buffer1[50] = "Hello, World!";
     char buffer2[50];
 
-    // Test non-overlapping
     ft_memmove(buffer2, buffer1, strlen(buffer1) + 1);
     printf("Non-overlapping: %s\n", buffer2);
 
-    // Test overlapping (src before dest)
-    ft_memmove(buffer1 + 7, buffer1, 6); // Move "Hello" to "World!"
+    // Solapamiento
+    ft_memmove(buffer1 + 7, buffer1, 6);
     printf("Overlapping (src before dest): %s\n", buffer1);
 
-    // Reset buffer1
+    // Reseteamos la cadena original
     strcpy(buffer1, "Hello, World!");
 
-    // Test overlapping (dest before src)
-    ft_memmove(buffer1, buffer1 + 7, 6); // Move "World!" to "Hello"
+    // Solapamiento
+    ft_memmove(buffer1, buffer1 + 7, 6);
     printf("Overlapping (dest before src): %s\n", buffer1);
 
     return 0;

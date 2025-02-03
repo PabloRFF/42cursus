@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 17:03:46 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/28 19:01:01 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:50:13 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,11 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 		i++;
 	return (i);
 }
+/* int main()
+{
+	char *src = "pabloestararo";
+	char dest[3];
+	ft_strlcpy(dest, src, 9);
+	printf("Cadena destino: %s\n", dest);
+	return 0;
+} */

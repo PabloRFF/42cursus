@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:31:28 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/28 18:32:53 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:00:14 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,15 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str[i] = '\0';
 	return (str);
 }
+
+/* char	set_to_zero(unsigned int n, char c)
+{
+	return ('0');
+}
+int main()
+{
+	char *str = "paco";
+	printf("Cadena antes: %s\n", str);
+	printf("Cadena despues: %s\n", ft_strmapi(str, set_to_zero));
+	return 0;
+} */

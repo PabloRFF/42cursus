@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 18:31:43 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/28 18:58:32 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:15:45 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,14 @@ void	*ft_memcpy(void *dest_str, const void *src_str, size_t n)
 		*d++ = *o++;
 	return (dest_str);
 }
+
+/* int main()
+{
+    char src[] = "Hola Mundo";
+    char dest[20];
+	//Sobreescribe
+    ft_memcpy(dest, src, 10);
+    printf("Destino después de memcpy: %s\n", dest);
+
+    return 0;
+} */

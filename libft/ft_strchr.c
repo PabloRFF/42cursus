@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 15:09:50 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/28 17:19:32 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:03:05 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,10 @@ char	*ft_strchr(const char *str, int c)
 	return (NULL);
 }
 
-// #include <stdio.h>
-// int main()
-// {
-// 	char *str = "Hello World!";
-// 	char c = 'o';
-// 	printf("%s\n", ft_strchr(str, c));
-// 	return 0;
-// }
+/* int main()
+{
+	char *str = "Hello World!";
+	char c = 'o';
+	printf("%s\n", ft_strchr(str, c));
+	return 0;
+} */

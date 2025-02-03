@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:12:48 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/28 19:31:18 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:16:21 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,3 +51,13 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
+
+/* int main()
+{
+	int n = 1243;
+	char	*result;
+	result = ft_itoa(n);
+	printf("Integer to string: %s\n", result);
+	free(result);
+	return 0;
+} */

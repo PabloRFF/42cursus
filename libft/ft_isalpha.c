@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:31:29 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/28 17:46:57 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:36:24 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int	ft_isalpha(int c)
 	return ((c > 64 && c < 91) || (c > 96 && c < 123));
 }
 
-// #include <stdio.h>
-// #include <ctype.h>
 // int main()
 // {
 //     int str1 = 'A';

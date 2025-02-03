@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:45:15 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/28 17:45:19 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:21:30 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,17 @@ void	*ft_calloc(size_t nitems, size_t size)
 	ft_bzero(ptr, total_size);
 	return (ptr);
 }
-
-// #include <stdio.h>
-// int main() {
-//     int *arr;
-//     size_t n = 5;
-
-//     arr = (int *)ft_calloc(n, sizeof(int));
-//     if (arr == NULL) {
-//         printf("Error al asignar memoria\n");
-//         return 1;
-//     }
-
-//     for (size_t i = 0; i < n; i++) {
-//         printf("%d ", arr[i]);
-//     }
-
-//     free(arr);
-
-//     return 0;
-// }
+/* int main() {
+    int *arr;
+    size_t n = 5;
+    arr = (int *)ft_calloc(n, sizeof(int));
+    if (arr == NULL) {
+        printf("Error del malloc\n");
+        return 1;
+    }
+    for (size_t i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    free(arr);
+    return 0;
+} */
