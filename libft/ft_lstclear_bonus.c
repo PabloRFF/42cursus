@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 16:30:08 by pablrome          #+#    #+#             */
-/*   Updated: 2025/02/03 17:38:18 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/02/03 18:20:21 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	if (!lst || !del)
 		return ;
 	current = *lst;
-	while (!current)
+	while (current)
 	{
 		next = current->next;
-		del(current);
+		del(current->content);
 		free(current);
 		current = next;
 	}
