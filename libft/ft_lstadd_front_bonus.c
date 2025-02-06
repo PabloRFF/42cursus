@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 11:52:31 by pablrome          #+#    #+#             */
-/*   Updated: 2025/02/03 18:04:17 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/02/04 14:11:09 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	*lst = new;
 }
 
-/* void	del_string(void *content)
+ void	del_string(void *content)
 {
 	free(content);
 }
@@ -57,4 +57,4 @@ int main()
     if (list == NULL)
         printf("La lista ha sido liberada correctamente.\n");
 	return 0;
-} */
+}
