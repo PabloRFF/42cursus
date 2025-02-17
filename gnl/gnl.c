@@ -69,27 +69,6 @@ char *get_next_line(int fd) {
     }
 }
 
-#include <fcntl.h>
-#include <stdio.h>
-
-// int main() {
-//     int fd = open("archivo.txt", O_RDONLY);
-//     char *line;
-// 	if (fd == -1) {
-//         perror("Error al abrir el archivo");
-//         return 1;
-//     }
-// 	printf("archivo abierto\n");
-// 	printf("Linea 1: %s", get_next_line(fd));
-// 	printf("Linea 2: %s", get_next_line(fd));
-//     // while (line == get_next_line(fd))
-// 	// {
-//     //     printf("Línea leída: %s", line);
-//     //     free(line);  // Liberar memoria asignada
-//     // }
-//     close(fd);
-//     return 0;
-// }
 
 #include <fcntl.h>
 #include <stdio.h>

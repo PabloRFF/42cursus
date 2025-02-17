@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 14:03:23 by pablrome          #+#    #+#             */
-/*   Updated: 2025/02/10 16:58:06 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:32:10 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 # define GET_NEXT_LINE_H
 
 # include <stdlib.h>
+# include <stdio.h>
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 15
 # endif
 
 char	*get_next_line(int fd);
@@ -27,4 +28,4 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 
-#endif+
+#endif

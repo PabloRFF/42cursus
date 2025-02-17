@@ -30,8 +30,8 @@ int main(void)
         {
             *newline = '\0';
             printf("Buffer: %s", temp_buffer);
-            //Lo que queda del buffer despues del salto de linea se guarda en la static
             buffer = strdup(newline + 1);
+            printf("Restante del buffer: %s\n", buffer);
             break;
         }
     }
