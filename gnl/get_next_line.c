@@ -144,7 +144,6 @@ static char *extract_line(char **buffer)
     return line;
 }
 
-// Función principal que lee la siguiente línea del archivo
 char *get_next_line(int fd)
 {
     static char *buffer = NULL;
