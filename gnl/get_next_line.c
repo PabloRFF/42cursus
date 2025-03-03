@@ -21,7 +21,7 @@ static int	read_and_append(int fd, char **buffer)
 
 	temp_buffer = ft_calloc(sizeof(char), BUFFER_SIZE + 1);
 	if (!temp_buffer)
-		return (NULL);
+		return (0);
 	bytes_read = read(fd, temp_buffer, BUFFER_SIZE);
 	if (bytes_read > 0)
 	{
@@ -59,7 +59,6 @@ static char	*extract_line(char **buffer)
     return (line);
 }
 
-
 char	*get_next_line(int fd)
 {
 	static char	*buffer;
@@ -80,24 +79,32 @@ char	*get_next_line(int fd)
 			break ;
 	}
 	newline = extract_line(&buffer);
+	if (newline && newline[0] == '\0')
+	{
+		free(newline);
+		newline = NULL;
+	}
 	return (newline);
 }
 
-// int main() {
-// 	int fd = open("archivo.txt", O_RDONLY);
-// 	if (fd == -1) {
-// 		printf("Error abriendo el archivo\n");
-// 		return 1;
-// 	}
-// 	char * line = get_next_line(fd);
-// 	printf("%s\n", line);
-// 	free(line);
-// 	line = get_next_line(fd);
-// 	printf("%s\n", line);
-// 	free(line);
-// 	line = get_next_line(fd);
-// 	printf("%s\n", line);
-// 	free(line);
-// 	close(fd);
-// 	return 0;
+// int main(void)
+// {
+//     int fd;
+//     char *line;
+
+//     fd = open("archivo.txt", O_RDONLY);
+//     if (fd < 0)
+//     {
+//         perror("Error abriendo archivo.txt");
+//         return (1);
+//     }
+    
+//     while ((line = get_next_line(fd)) != NULL)
+//     {
+//         printf("%s\n", line);
+//         free(line);
+//     }
+    
+//     close(fd);
+//     return (0);
 // }
