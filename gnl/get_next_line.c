@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 17:09:20 by pablrome          #+#    #+#             */
-/*   Updated: 2025/03/03 18:52:45 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/03/04 18:37:31 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,12 @@ char	*get_next_line(int fd)
 	while (bytes_read != 0 && buffer && !ft_strchr(buffer, '\n'))
 	{
 		bytes_read = read_and_append(fd, &buffer);
+		if (bytes_read == -1)
+        {
+            free(buffer);
+            buffer = NULL;
+            return (NULL);
+        }
 		if (bytes_read <= 0)
 			break ;
 	}
