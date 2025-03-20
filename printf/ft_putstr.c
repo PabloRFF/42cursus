@@ -1,14 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/20 18:43:50 by pablrome          #+#    #+#             */
+/*   Updated: 2025/03/20 18:44:05 by pablrome         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "ft_printf.h"
 
-int ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
-    int len = 0;
+	int	len;
 
-    while (str[len] != '\0')
-    {
-        ft_putchar(str[len]);
-        len++;
-    }
+	len = 0;
+	while (str[len] != '\0')
+	{
+		ft_putchar(str[len]);
+		len++;
+	}
 
-    return (len);
+	return (len);
 }
