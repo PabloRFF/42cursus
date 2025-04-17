@@ -6,12 +6,45 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 17:09:20 by pablrome          #+#    #+#             */
-/*   Updated: 2025/03/04 18:37:31 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/03/11 14:42:29 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include "get_next_line.h"
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*ptr;
+	size_t	i;
+
+	if (nmemb != 0 && (nmemb * size) / nmemb != size)
+		return (NULL);
+	ptr = (void *)malloc(size * nmemb);
+	if (!ptr)
+		return (NULL);
+	if (size == 0)
+		return (ptr);
+	i = 0;
+	while (i < (nmemb * size))
+	{
+		((unsigned char *)ptr)[i] = 0;
+		i++;
+	}
+	return (ptr);
+}
+
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	char		*d;
+	const char	*s;
+
+	d = dst;
+	s = src;
+	while (n--)
+		*d++ = *s++;
+	return (dst);
+}
 
 static int	read_and_append(int fd, char **buffer)
 {
@@ -92,10 +125,7 @@ char	*get_next_line(int fd)
 	}
 	newline = extract_line(&buffer);
 	if (newline && newline[0] == '\0')
-	{
-		free(newline);
-		newline = NULL;
-	}
+		return (free(newline), (NULL));
 	return (newline);
 }
 
