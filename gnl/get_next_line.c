@@ -41,32 +41,33 @@ static int	read_and_append(int fd, char **buffer)
 
 static char	*extract_line(char **buffer)
 {
-	char	*aux;
-	char	*line;
-	int		i;
-	char	*temp;
+    char	*line;
+    char	*aux;
+    int		i = 0;
 
-	i = 0;
-	while ((*buffer)[i] != '\0' && (*buffer)[i] != '\n')
-		i++;
-	if ((*buffer)[i] == '\n')
-		line = ft_substr(*buffer, 0, i + 1);
-	else
-		line = ft_substr(*buffer, 0, i);
-	aux = ft_strchr(*buffer, '\n');
-	if (aux)
-	{
-		temp = ft_strdup(aux + 1);
-		free(*buffer);
-		*buffer = temp;
-	}
-	else
-	{
-		free(*buffer);
-		*buffer = NULL;
-	}
-	return (line);
+    while ((*buffer)[i] && (*buffer)[i] != '\n')
+        i++;
+    if ((*buffer)[i] == '\n')
+        line = ft_substr(*buffer, 0, i + 1);
+    else
+        line = ft_substr(*buffer, 0, i);
+    aux = ft_strchr(*buffer, '\n');
+    if (aux)
+    {
+        char *temp = ft_strdup(aux + 1);
+		if (!temp)
+			return (NULL);
+        free(*buffer);
+        *buffer = temp;
+    }
+    else
+    {
+        free(*buffer);
+        *buffer = NULL;
+    }
+    return (line);
 }
+
 
 char	*get_next_line(int fd)
 {
@@ -74,24 +75,20 @@ char	*get_next_line(int fd)
 	char		*newline;
 	int			bytes_read;
 
+	if (!buffer)
+		buffer = ft_calloc(1, 1);
+	if (!buffer)
+		return (free(bufferNULL);
 	bytes_read = 1;
-	if (BUFFER_SIZE <= 0 || fd < 0)
-		return (NULL);
-	if (!buffer)
-		buffer = ft_calloc(sizeof(char), 1);
-	if (!buffer)
-		return (NULL);
-	while (bytes_read != 0 && buffer && !ft_strchr(buffer, '\n'))
+	while (bytes_read != 0 && !ft_strchr(buffer, '\n'))
 	{
 		bytes_read = read_and_append(fd, &buffer);
 		if (bytes_read == -1)
-        {
-            free(buffer);
-            buffer = NULL;
-            return (NULL);
-        }
-		if (bytes_read <= 0)
-			break ;
+		{
+			free(buffer);
+			buffer = NULL;
+			return (NULL);
+		}
 	}
 	newline = extract_line(&buffer);
 	if (newline && newline[0] == '\0')
