@@ -1,4 +1,4 @@
-// Archivo: src/init.c
+
 #include "push_swap.h"
 
 bool	is_number(const char *str)

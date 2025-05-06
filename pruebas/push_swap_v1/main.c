@@ -1,7 +1,7 @@
 // Archivo: src/main.c
 #include "push_swap.h"
 
-int	move_count = 0;
+int	g_move_count = 0;
 
 int	main(int argc, char **argv)
 {
@@ -29,6 +29,6 @@ int	main(int argc, char **argv)
 	assign_indices(&a);
 	turco(&a, &b);
 	print_stacks(&a, &b);
-	printf("Total movimientos: %d\n", move_count);
+	printf("Total movimientos: %d\n", g_move_count);
 	return (0);
 }

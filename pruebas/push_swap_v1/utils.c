@@ -9,7 +9,7 @@ void	swap_elem(t_elem *a, t_elem *b)
 	*b = tmp;
 }
 
-void    assign_indices(t_stack *a)
+void	assign_indices(t_stack *a)
 {
 	int	i;
 	int	j;
@@ -27,7 +27,8 @@ void    assign_indices(t_stack *a)
 		i++;
 	}
 }
-void    print_stacks(t_stack *a, t_stack *b)
+
+void	print_stacks(t_stack *a, t_stack *b)
 {
 	int	i;
 
@@ -46,6 +47,7 @@ void    print_stacks(t_stack *a, t_stack *b)
 		i++;
 	}
 }
+
 void	sort_array(t_elem *arr, int n)
 {
 	int	i;
