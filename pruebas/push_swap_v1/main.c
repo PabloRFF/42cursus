@@ -13,7 +13,7 @@ int	main(int argc, char **argv)
 	b.size = 0;
 	if (argc < 2)
 	{
-        printf("Error: No arguments provided.\n");
+		printf("Error: No arguments provided.\n");
 		return (1);
 	}
 	i = 1;
