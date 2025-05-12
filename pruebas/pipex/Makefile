@@ -5,7 +5,7 @@ SRC = pipex_utils.c pipex.c
 OBJ = $(SRC:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
 
 $(NAME): $(OBJ)
 	cd libft && $(MAKE)

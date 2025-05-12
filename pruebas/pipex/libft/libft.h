@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 18:22:52 by pablrome          #+#    #+#             */
-/*   Updated: 2025/02/03 18:28:41 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/05/12 18:16:35 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
+void	ft_free_matrix(char **matrix);
+
 typedef struct s_list
 {
 	void			*content;
