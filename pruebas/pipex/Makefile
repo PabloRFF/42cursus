@@ -1,6 +1,6 @@
 NAME = pipex
 
-SRC = prueba.c
+SRC = pipex_utils.c pipex.c
 
 OBJ = $(SRC:.c=.o)
 
