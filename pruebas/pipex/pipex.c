@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 16:26:52 by pablrome          #+#    #+#             */
-/*   Updated: 2025/05/19 18:19:02 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/05/19 20:18:12 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@ void	check_args(int argc, char *argv[])
 {
 	(void)argv;
 	if (argc != 5)
-	{
-		write(2, "Error: Invalid number of arguments\n", 36);
-		exit(1);
-	}
+		exit_error("Usage: ./pipex infile cmd1 cmd2 outfile");
 }
 
 void	child_one(char *cmd_str, int input_fd, int *pip, char **envp)
@@ -33,7 +30,7 @@ void	child_one(char *cmd_str, int input_fd, int *pip, char **envp)
 	{
 		free(path);
 		free_split(cmd);
-		exit(write(2, "Command not found\n", 18));
+		exit_error("Command not found");
 	}
 	dup2(input_fd, STDIN_FILENO);
 	dup2(pip[1], STDOUT_FILENO);
@@ -58,7 +55,7 @@ void	child_two(char *cmd_str, int output_fd, int *pip, char **envp)
 	{
 		free(path);
 		free_split(cmd);
-		exit(write(2, "Command not found\n", 18));
+		exit_error("Command not found");
 	}
 	dup2(pip[0], STDIN_FILENO);
 	dup2(output_fd, STDOUT_FILENO);
@@ -78,10 +75,7 @@ int	create_process(void)
 
 	pid = fork();
 	if (pid < 0)
-	{
-		perror("Error al crear el proceso");
-		exit(1);
-	}
+		exit_error("Fork failed");
 	return (pid);
 }
 

@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:34:44 by pablrome          #+#    #+#             */
-/*   Updated: 2025/05/19 18:19:20 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/05/19 20:18:25 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	open_input(char *infile)
 
 	fd = open(infile, O_RDONLY);
 	if (fd < 0)
-		exit_error();
+		exit_error("Error opening input file");
 	return (fd);
 }
 
@@ -28,14 +28,19 @@ int	open_output(char *outfile)
 
 	fd = open(outfile, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd < 0)
-		exit_error();
+		exit_error("Error opening output file");
 	return (fd);
 }
 
-void	exit_error(void)
+void	exit_error(char *msg)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(1);
+	if (msg)
+	{
+		perror(msg);
+		exit(1);
+	}
+	else
+		ft_putstr_fd("Error\n", 2);
 }
 
 void	free_split(char **array)
@@ -64,7 +69,7 @@ char	*get_path(char *cmd, char **envp)
 	while (envp[i] && ft_strnstr(envp[i], "PATH", 4) == 0)
 		i++;
 	if (!envp[i])
-		exit_error();
+		exit_error("PATH not found");
 	paths = ft_split(envp[i] + 5, ':');
 	i = 0;
 	while (paths[i])
