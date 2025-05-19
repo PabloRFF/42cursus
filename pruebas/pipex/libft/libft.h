@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 18:22:52 by pablrome          #+#    #+#             */
-/*   Updated: 2025/05/12 18:16:35 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/05/19 20:37:31 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include <ctype.h>
 # include <unistd.h>
 # include <string.h>
+# include <stdarg.h>
+
+# define HEX_UP_BASE "0123456789ABCDEF"
+# define HEW_LOW_BASE "0123456789abcdef"
 
 int		ft_atoi(const char *str);
 int		ft_isalnum(int c);
@@ -53,6 +57,12 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_free_matrix(char **matrix);
+int		ft_printf(const char *str, ...);
+int		ft_putchar(int c);
+int		ft_putstr(char *str);
+int		ft_putnbr(int n);
+int		ft_putnbr_u(unsigned int n);
+int		ft_putnbr_base(unsigned long n, char *base);
 
 typedef struct s_list
 {

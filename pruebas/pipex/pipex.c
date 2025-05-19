@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 16:26:52 by pablrome          #+#    #+#             */
-/*   Updated: 2025/05/19 20:18:12 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/05/19 20:46:02 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	check_args(int argc, char *argv[])
 {
 	(void)argv;
 	if (argc != 5)
-		exit_error("Usage: ./pipex infile cmd1 cmd2 outfile");
+		exit_error("ERROR\nUsage: ./pipex infile cmd1 cmd2 outfile");
 }
 
 void	child_one(char *cmd_str, int input_fd, int *pip, char **envp)

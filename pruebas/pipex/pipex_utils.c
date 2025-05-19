@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:34:44 by pablrome          #+#    #+#             */
-/*   Updated: 2025/05/19 20:18:25 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/05/19 20:38:36 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	exit_error(char *msg)
 {
 	if (msg)
 	{
-		perror(msg);
+		printf("%s\n", msg);
 		exit(1);
 	}
 	else
