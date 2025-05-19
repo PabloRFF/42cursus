@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:34:44 by pablrome          #+#    #+#             */
-/*   Updated: 2025/05/12 18:16:49 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/05/19 18:19:20 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,21 @@ void	exit_error(void)
 {
 	ft_putstr_fd("Error\n", 2);
 	exit(1);
+}
+
+void	free_split(char **array)
+{
+	int	i;
+
+	if (!array)
+		return ;
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }
 
 char	*get_path(char *cmd, char **envp)
