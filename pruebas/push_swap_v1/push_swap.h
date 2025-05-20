@@ -1,7 +1,7 @@
-// Archivo: include/push_swap.h
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "libft/libft.h"
 # include <stdlib.h>
 # include <limits.h>
 # include <stdbool.h>
@@ -12,15 +12,15 @@
 
 typedef struct s_elem
 {
-	int value;
-	int index;
-} t_elem;
+	int	value;
+	int	index;
+}	t_elem;
 
 typedef struct s_stack
 {
-	t_elem data[MAX];
-	int size;
-} t_stack;
+	t_elem	data[MAX];
+	int		size;
+}	t_stack;
 
 /* main.c */
 int		main(int argc, char **argv);

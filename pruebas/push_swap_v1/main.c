@@ -1,7 +1,40 @@
-// Archivo: src/main.c
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/19 18:29:24 by pablrome          #+#    #+#             */
+/*   Updated: 2025/05/19 20:24:59 by pablrome         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	g_move_count = 0;
+
+void	argv_to_numbers(char *str, t_stack *a)
+{
+	char	**numbers;
+	int		i;
+
+	numbers = ft_split(str, ' ');
+	if (!numbers)
+		return ;
+	i = 0;
+	while (numbers[i])
+	{
+		if (!add_number(a, numbers[i]))
+		{
+			write(2, "Error\n", 6);
+			free(numbers);
+			return ;
+		}
+		i++;
+	}
+	free(numbers);
+}
 
 int	main(int argc, char **argv)
 {
@@ -17,18 +50,18 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	i = 1;
-	while (i < argc)
+	if (argc == 2)
+		argv_to_numbers(argv[1], &a);
+	else
 	{
-		if (!add_number(&a, argv[i]))
+		while (i < argc)
 		{
-			write(2, "Error\n", 6);
-			return (1);
+			if (!add_number(&a, argv[i]))
+				return (write(2, "Error\n", 6), 1);
+			i++;
 		}
-		i++;
 	}
 	assign_indices(&a);
 	turco(&a, &b);
-	print_stacks(&a, &b);
-	printf("Total movimientos: %d\n", g_move_count);
-	return (0);
+	return (printf("Total movimientos: %d\n", g_move_count), 0);
 }

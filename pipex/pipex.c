@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 16:26:52 by pablrome          #+#    #+#             */
-/*   Updated: 2025/05/20 12:38:56 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/05/20 13:43:55 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,6 @@ int	main(int argc, char *argv[], char **envp)
 	pid_t	pid1;
 	pid_t	pid2;
 
-	// for (int i = 0; envp[i] != NULL; i++)
-	// {
-	// 	printf("envp[%d]: %s\n", i, envp[i]);
-	// }
-	
 	check_args(argc, argv);
 	input_fd = open_input(argv[1]);
 	output_fd = open_output(argv[4]);

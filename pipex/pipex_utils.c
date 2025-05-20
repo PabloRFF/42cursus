@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:34:44 by pablrome          #+#    #+#             */
-/*   Updated: 2025/05/20 12:39:03 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/05/20 13:38:11 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	exit_error(char *msg)
 {
 	if (msg)
 	{
-		ft_printf("%s\n", msg);
+		printf("%s\n", msg);
 		exit(1);
 	}
 	else
@@ -64,17 +64,15 @@ char	*get_path(char *cmd, char **envp)
 	char	*path;
 	char	*temp;
 	int		i;
-	int 	no_path = 0;
 
 	i = 0;
 	while (envp[i] && ft_strnstr(envp[i], "PATH", 4) == 0)
 		i++;
 	if (!envp[i] || ft_strchr(cmd, '/'))
-		no_path = 1;
-	else
-		paths = ft_split(envp[i] + 5, ':');
+		return (ft_strdup(cmd));
+	paths = ft_split(envp[i] + 5, ':');
 	i = 0;
-	while (!no_path && paths[i])
+	while (paths[i])
 	{
 		temp = ft_strjoin(paths[i], "/");
 		path = ft_strjoin(temp, cmd);
@@ -84,8 +82,6 @@ char	*get_path(char *cmd, char **envp)
 		free(path);
 		i++;
 	}
-	if(no_path)
-		return (ft_strdup(cmd));
 	i = -1;
 	ft_free_matrix(paths);
 	return (0);
