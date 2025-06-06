@@ -296,7 +296,6 @@ int main(int argc, char **argv) {
 
     if (argc < 2) {
         fprintf(stderr, "Uso: %s num1 num2 ...\n", argv[0]);
-        
         return 1;
     }
 
