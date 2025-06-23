@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/23 17:44:54 by pablrome          #+#    #+#             */
+/*   Updated: 2025/06/23 17:44:55 by pablrome         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -30,7 +42,7 @@ bool	is_number(const char *str);
 bool	has_duplicate(t_stack *a, int num);
 bool	add_number(t_stack *a, const char *arg);
 
-/* operations.c */
+/* operations */
 void	sa(t_stack *a);
 void	sb(t_stack *b);
 void	ss(t_stack *a, t_stack *b);

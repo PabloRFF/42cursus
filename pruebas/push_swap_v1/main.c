@@ -6,13 +6,11 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 18:29:24 by pablrome          #+#    #+#             */
-/*   Updated: 2025/05/19 20:24:59 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/06/23 18:29:09 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	g_move_count = 0;
 
 void	argv_to_numbers(char *str, t_stack *a)
 {
@@ -28,12 +26,12 @@ void	argv_to_numbers(char *str, t_stack *a)
 		if (!add_number(a, numbers[i]))
 		{
 			write(2, "Error\n", 6);
-			free(numbers);
+			ft_free_matrix(numbers);
 			return ;
 		}
 		i++;
 	}
-	free(numbers);
+	ft_free_matrix(numbers);
 }
 
 int	main(int argc, char **argv)
@@ -62,6 +60,5 @@ int	main(int argc, char **argv)
 		}
 	}
 	assign_indices(&a);
-	turco(&a, &b);
-	return (printf("Total movimientos: %d\n", g_move_count), 0);
+	return (turco(&a, &b)),(0);
 }

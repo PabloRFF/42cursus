@@ -1,8 +1,6 @@
 
 #include "push_swap.h"
 
-extern int	g_move_count;
-
 void	pa(t_stack *a, t_stack *b)
 {
 	int		i;
@@ -25,7 +23,6 @@ void	pa(t_stack *a, t_stack *b)
 	}
 	b->size--;
 	write(1, "pa\n", 3);
-	g_move_count++;
 }
 
 void	sb(t_stack *b)
@@ -38,7 +35,6 @@ void	sb(t_stack *b)
 		b->data[0] = b->data[1];
 		b->data[1] = tmp;
 		write(1, "sb\n", 3);
-		g_move_count++;
 	}
 }
 
@@ -58,7 +54,6 @@ void	rb(t_stack *b)
 	}
 	b->data[b->size - 1] = tmp;
 	write(1, "rb\n", 3);
-	g_move_count++;
 }
 
 void	rra(t_stack *a)
@@ -77,7 +72,6 @@ void	rra(t_stack *a)
 	}
 	a->data[0] = tmp;
 	write(1, "rra\n", 4);
-	g_move_count++;
 }
 
 void	rrb(t_stack *b)
@@ -96,5 +90,4 @@ void	rrb(t_stack *b)
 	}
 	b->data[0] = tmp;
 	write(1, "rrb\n", 4);
-	g_move_count++;
 }

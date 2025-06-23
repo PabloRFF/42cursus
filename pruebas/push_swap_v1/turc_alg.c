@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   turc_alg.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/23 17:53:09 by pablrome          #+#    #+#             */
+/*   Updated: 2025/06/23 17:57:35 by pablrome         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	find_max_index(t_stack *b)
@@ -22,39 +34,66 @@ static void	rotate_b_to_top(t_stack *b, int pos)
 
 	i = 0;
 	if (pos <= b->size / 2)
-	{
 		while (i++ < pos)
 			rb(b);
-	}
 	else
-	{
 		while (i++ < b->size - pos)
 			rrb(b);
+}
+
+static int	find_best_push_position(t_stack *a, int current_max)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = a->size - 1;
+	while (i <= j)
+	{
+		if (a->data[i].index <= current_max)
+			return (i);
+		if (a->data[j].index <= current_max)
+			return (j);
+		i++;
+		j--;
 	}
+	return (-1);
+}
+
+static void	move_to_top_a(t_stack *a, int pos)
+{
+	int	i;
+
+	i = 0;
+	if (pos <= a->size / 2)
+		while (i++ < pos)
+			ra(a);
+	else
+		while (i++ < a->size - pos)
+			rra(a);
 }
 
 static void	push_chunks(t_stack *a, t_stack *b, int chunk_size)
 {
-	int	total;
-	int	current_max;
 	int	pushed;
+	int	current_max;
+	int	pos;
 
-	total = a->size;
 	current_max = chunk_size - 1;
 	pushed = 0;
 	while (a->size > 0)
 	{
-		if (a->data[0].index <= current_max)
+		pos = find_best_push_position(a, current_max);
+		if (pos == -1)
 		{
-			pb(a, b);
-			pushed++;
-			if (b->size > 1 && b->data[0].index < current_max - (chunk_size / 2))
-				rb(b);
-		}
-		else
-			ra(a);
-		if (pushed >= current_max + 1 && current_max < total - 1)
 			current_max += chunk_size;
+			continue;
+		}
+		move_to_top_a(a, pos);
+		pb(a, b);
+		pushed++;
+		if (b->size > 1 && b->data[0].index < current_max - (chunk_size / 2))
+			rb(b);
 	}
 }
 

@@ -3,19 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcluzet <jcluzet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 02:22:36 by jcluzet           #+#    #+#             */
-/*   Updated: 2022/09/01 23:10:52 by jcluzet          ###   ########.fr       */
+/*   Created: 2022/11/06 15:58:50 by pandalaf          #+#    #+#             */
+/*   Updated: 2022/11/06 15:59:01 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
-char	*ft_itoa(int nbr);
+#include <stdio.h>
+
+char	**ft_split(char *str);
 
 int main(int argc, char **argv)
 {
-    printf("%s\n", ft_itoa(atoi(argv[1])));
+	char	**split;
+	int		i;
+
+	if (argc == 2)
+	{
+		split = ft_split(argv[1]);
+			printf("%s ", split[0]);
+		i = 1;
+		while (split[i] != 0)
+		{
+			printf("%s ", split[i]);
+			i++;
+		}
+		printf("%s", split[i]);
+	}
+	printf("\n");
     return (0);
 }

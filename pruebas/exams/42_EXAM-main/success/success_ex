@@ -1,3 +1,7 @@
 do_op
 print_hex
 ft_itoa
+ft_strcpy
+ft_strcspn
+ft_atoi_base
+ft_split

@@ -1,11 +1,14 @@
-Assignment name  : ft_itoa
-Expected files   : ft_itoa.c
+Assignment name  : ft_split
+Expected files   : ft_split.c
 Allowed functions: malloc
 --------------------------------------------------------------------------------
 
-Write a function that takes an int and converts it to a null-terminated string.
-The function returns the result in a char array that you must allocate.
+Write a function that takes a string, splits it into words, and returns them as
+a NULL-terminated array of strings.
+
+A "word" is defined as a part of a string delimited either by spaces/tabs/new
+lines, or by the start/end of the string.
 
 Your function must be declared as follows:
 
-char	*ft_itoa(int nbr);
+char    **ft_split(char *str);

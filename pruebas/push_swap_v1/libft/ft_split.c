@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:30:14 by pablrome          #+#    #+#             */
-/*   Updated: 2025/01/30 13:52:19 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/06/23 18:30:49 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,29 +73,3 @@ char	**ft_split(char const *s, char c)
 	result[j] = NULL;
 	return (result);
 }
-
-/* int main(void)
-{
-    char *str = "Hello, this is a test string.";
-    char delimiter = ' ';
-    char **result;
-    int i;
-
-    result = ft_split(str, delimiter);
-    if (!result)
-    {
-        printf("Memory fail.\n");
-        return 1;
-    }
-	printf("COMPLETE WORD: \n");
-	printf("%s\n", str);
-	printf("-----------------------------\n");
-    printf("Split words:\n");
-    for (i = 0; result[i] != NULL; i++)
-    {
-        printf("Word %d: %s\n", i + 1, result[i]);
-        free(result[i]);
-    }
-    free(result);
-    return 0;
-} */
