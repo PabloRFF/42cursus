@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 18:29:24 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/23 18:29:09 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/06/25 14:59:01 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	argv_to_numbers(char *str, t_stack *a)
 	int		i;
 
 	numbers = ft_split(str, ' ');
-	if (!numbers)
-		return ;
+	if (!numbers || !numbers[0])
+		return (write(1, "Ussage: ./push_swap <n> <n> ...\n", 33), exit(1));
 	i = 0;
 	while (numbers[i])
 	{
@@ -27,7 +27,7 @@ void	argv_to_numbers(char *str, t_stack *a)
 		{
 			write(2, "Error\n", 6);
 			ft_free_matrix(numbers);
-			return ;
+			exit(1);
 		}
 		i++;
 	}
@@ -43,10 +43,7 @@ int	main(int argc, char **argv)
 	a.size = 0;
 	b.size = 0;
 	if (argc < 2)
-	{
-		printf("Error: No arguments provided.\n");
-		return (1);
-	}
+		return (write(1, "Error. Ussage: ./push_swap <n> <n> ...\n", 39), 1);
 	i = 1;
 	if (argc == 2)
 		argv_to_numbers(argv[1], &a);
@@ -60,5 +57,5 @@ int	main(int argc, char **argv)
 		}
 	}
 	assign_indices(&a);
-	return (turco(&a, &b)),(0);
+	return (sort_alg(&a, &b), 0);
 }

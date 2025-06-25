@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 18:29:09 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/23 18:22:02 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/06/25 13:38:30 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ bool	add_number(t_stack *a, const char *arg)
 
 	if (!is_number(arg))
 		return (false);
-	//n = strtol(arg, NULL, 10);
 	n = (long)ft_atoi(arg);
 	if (n < INT_MIN || n > INT_MAX)
 		return (false);

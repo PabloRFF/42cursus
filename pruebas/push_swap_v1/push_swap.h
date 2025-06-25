@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 17:44:54 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/23 17:44:55 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/06/25 16:06:38 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,15 @@ void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 
-/* algo_turco.c */
-void	turco(t_stack *a, t_stack *b);
+/* little_sort.c */
+void	sort_three(t_stack *a);
+void	sort_two(t_stack *a);
+void	sort_five(t_stack *a, t_stack *b);
+
+/*sort_alg.c */
+void	sort_alg(t_stack *a, t_stack *b);
+int		find_max_index(t_stack *b);
+void	rotate_b_to_top(t_stack *b, int pos);
 
 /* utils.c */
 void	assign_indices(t_stack *a);

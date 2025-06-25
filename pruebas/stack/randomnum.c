@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define SIZE 500
+#define SIZE 100
 
 void shuffle(int arr[], int size) {
     for (int i = size - 1; i > 0; i--) {
