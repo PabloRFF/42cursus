@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/26 13:41:38 by pablrome          #+#    #+#             */
+/*   Updated: 2025/06/26 13:46:34 by pablrome         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -15,15 +27,15 @@
 
 typedef struct s_game
 {
-    void    *mlx;
-    void    *win;
-    char    **map;
-    int     width;
-    int     height;
-    int     moves;
-    int     collectibles;
-    int     player_x;
-    int     player_y;
-}   t_game;
+	void	*mlx;
+	void	*win;
+	char	**map;
+	int		width;
+	int		height;
+	int		moves;
+	int		collectibles;
+	int		player_x;
+	int		player_y;
+}	t_game;
 
 #endif
