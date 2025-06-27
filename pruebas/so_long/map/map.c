@@ -6,34 +6,53 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 13:38:50 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/26 13:52:36 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/06/27 16:49:51 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 
-int	load_map(t_game *game, char *file)
+static int	read_map_lines(t_game *g, int fd)
 {
-	int	i;
-	int	line_length;
+	int		i;
+	int		len;
 
-	game->height = count_lines(file);
-	if (game->height <= 0)
-		return (write(2, "Error: Invalid map file\n", 24), 0);
-	game->map = malloc(sizeof(char *) * (game->height + 1));
-	if (!game->map)
-		return (write(2, "Error: Memory allocation failed\n", 33), 0);
-	game->width = (int)ft_strlen(game->map[0]);
 	i = 0;
-	while (i < game->height)
+	while (i < g->height)
 	{
-		line_length = ft_strlen(game->map[i]);
-		if (game->map[i][line_length - 1] == '\n')
-			line_length--;
-		if (line_length != game->width)
-			return (write(2, "Error: Wrong map\n", 17), free_map(game->map), 0);
-		return (1);
+		g->map[i] = get_next_line(fd);
+		if (!g->map[i])
+			return (write(2, "Error: read fail\n", 17), free_map(g->map), 0);
+		len = ft_strlen(g->map[i]);
+		if (g->map[i][len - 1] == '\n')
+			len--;
+		if (i == 0)
+			g->width = len;
+		else if (len != g->width)
+			return (write(2, "Error: wrong size\n", 18), free_map(g->map), 0);
+		i++;
 	}
+	g->map[i] = NULL;
+	return (1);
+}
+
+int	load_map(t_game *g, char *file)
+{
+	int	fd;
+
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		return (write(2, "Error: cannot open file\n", 25), 0);
+	g->height = count_lines(file);
+	if (g->height <= 0)
+		return (write(2, "Error: empty map\n", 18), close(fd), 0);
+	g->map = malloc(sizeof(char *) * (g->height + 1));
+	if (!g->map)
+		return (write(2, "Error: malloc failed\n", 22), close(fd), 0);
+	if (!read_map_lines(g, fd))
+		return (close(fd), 0);
+	close(fd);
+	return (1);
 }
 
 int	validate_map(t_game *game)
@@ -57,6 +76,10 @@ int	validate_map(t_game *game)
 		}
 		i++;
 	}
+	if (!check_walls(game))
+		return (0);
+	if (!check_path(game))
+		return (0);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 13:41:05 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/26 13:45:48 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/06/27 16:45:36 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,7 @@
 
 int	load_map(t_game *game, char *file);
 int	validate_map(t_game *game);
+int	check_walls(t_game *game);
+int	check_path(t_game *game);
 
 #endif
