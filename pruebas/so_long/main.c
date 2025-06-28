@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:03:15 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/27 16:45:57 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/06/28 16:34:02 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,6 @@ int	main(int argc, char **argv)
 		return (1);
 	if (!validate_map(&game))
 		return (free_map(game.map), 1);
-	if (!game_init(&game))
-	{
-		free_map(game.map);
-		return (1);
-	}
-	if (!render_game(&game))
-	{
-		free_map(game.map);
-		return (1);
-	}
+	game_init(&game);
 	return (0);
 }
-

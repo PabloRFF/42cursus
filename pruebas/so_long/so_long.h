@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 13:41:38 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/26 13:46:34 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/06/28 16:20:39 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # include "events/events.h"
 # include "utils/utils.h"
 
+# define TILE_SIZE 64
+
 typedef struct s_game
 {
 	void	*mlx;
@@ -36,6 +38,13 @@ typedef struct s_game
 	int		collectibles;
 	int		player_x;
 	int		player_y;
+
+	// Imágenes:
+	void	*img_wall;
+	void	*img_floor;
+	void	*img_player;
+	void	*img_exit;
+	void	*img_collectible;
 }	t_game;
 
 #endif
