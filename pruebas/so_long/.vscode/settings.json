@@ -7,6 +7,9 @@
         "mlx.h": "c",
         "utils.h": "c",
         "so_long.h": "c",
-        "fcntl.h": "c"
+        "fcntl.h": "c",
+        "render.h": "c",
+        "mlx_int.h": "c",
+        "game.h": "c"
     }
 }

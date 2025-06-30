@@ -6,14 +6,14 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:25:42 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/28 16:26:24 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/06/30 15:20:12 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EVENTS_H
 # define EVENTS_H
 
-# include "so_long.h"
+# include "../so_long.h"
 
 int	close_game(t_game *game);
 

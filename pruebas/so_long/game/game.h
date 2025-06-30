@@ -6,14 +6,14 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 15:07:39 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/28 16:18:53 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/06/30 15:20:07 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
 
-# include "so_long.h"
+# include "../so_long.h"
 
 void	game_init(t_game *game);
 

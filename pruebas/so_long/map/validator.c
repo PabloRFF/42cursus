@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 14:47:15 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/27 16:45:02 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/06/30 16:16:23 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,14 @@ int	check_path(t_game *game)
 	start_x = game->player_x;
 	start_y = game->player_y;
 	flood_fill(map_copy, start_x, start_y);
+	i = 0;
 	while (i < game->height)
 	{
 		j = 0;
 		while (j < game->width)
 		{
 			if (map_copy[i][j] == 'C' || map_copy[i][j] == 'E')
-				return (ft_printf("Erorr: No solution for this map\n"),
-					free_map(map_copy), 0);
+				return (printf("Erorr: No solution\n"), free_map(map_copy), 0);
 			j++;
 		}
 		i++;

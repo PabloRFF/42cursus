@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 13:38:50 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/27 16:49:51 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/06/30 16:10:23 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	read_map_lines(t_game *g, int fd)
 	i = 0;
 	while (i < g->height)
 	{
-		g->map[i] = get_next_line(fd);
+		g->map[i] = read_line(fd);
 		if (!g->map[i])
 			return (write(2, "Error: read fail\n", 17), free_map(g->map), 0);
 		len = ft_strlen(g->map[i]);
