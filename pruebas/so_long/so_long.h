@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 13:41:38 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/30 18:03:46 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/07/01 14:24:53 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,13 @@
 # include <stdio.h>
 # include "libft/libft.h"
 
-# define TILE_SIZE 16
+typedef struct s_game	t_game;
+# define TILE_SIZE 64
+# include "map/map.h"
+# include "game/game.h"
+# include "render/render.h"
+# include "events/events.h"
+# include "utils/utils.h"
 
 typedef struct s_game
 {
@@ -41,12 +47,5 @@ typedef struct s_game
 	void	*walls[2];
 	void	*player_frames[2];
 }	t_game;
-
-# include "map/map.h"
-# include "game/game.h"
-# include "render/render.h"
-# include "events/events.h"
-# include "utils/utils.h"
-
 
 #endif

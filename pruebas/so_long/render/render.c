@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:22:33 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/30 16:53:17 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/07/01 13:43:32 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,6 @@ static void	put_wall(t_game *g, int x, int y)
 		exit(1);
 	}
 	mlx_put_image_to_window(g->mlx, g->win, img, x * TILE_SIZE, y * TILE_SIZE);
-}
-
-static void	render_floor_or_wall(t_game *g, char c, int x, int y)
-{
-	if (c == '1')
-		put_wall(g, x, y);
-	else
-	{
-		if (!g->img_floor)
-		{
-			printf("ERROR: Floor image is NULL\n");
-			exit(1);
-		}
-		mlx_put_image_to_window(g->mlx, g->win,
-			g->img_floor, x * TILE_SIZE, y * TILE_SIZE);
-	}
 }
 
 static void	render_entity(t_game *g, char c, int x, int y)
@@ -76,16 +60,13 @@ void	render_tile(t_game *g, int x, int y)
 {
 	char	c;
 
-	if (!g->mlx || !g->win)
-		exit(printf("ERROR: MLX or window NULL\n"));
-	if (x < 0 || y < 0 || x >= g->width || y >= g->height)
-		exit(printf("ERROR: Out of bounds (%d,%d)\n", x, y));
-	if (!g->map || !g->map[y])
-		exit(printf("ERROR: Map NULL at row %d\n", y));
-
 	c = g->map[y][x];
-	render_floor_or_wall(g, c, x, y);
-	render_entity(g, c, x, y);
+	mlx_put_image_to_window(g->mlx, g->win,
+		g->img_floor, x * TILE_SIZE, y * TILE_SIZE);
+	if (c == '1')
+		put_wall(g, x, y);
+	else
+		render_entity(g, c, x, y);
 }
 
 void	render_map(t_game *g)

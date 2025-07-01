@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:22:29 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/30 17:04:31 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/07/01 13:58:27 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,6 @@ void	load_images(t_game *g, int *w, int *h)
 	g->player_frames[1] = mlx_xpm_file_to_image(g->mlx,
 			"assets/player_1.xpm", w, h);
 
+	printf("floor: %dx%d\n", *w, *h);
+	printf("wall_horizontal: %dx%d\n", *w, *h);
 }
