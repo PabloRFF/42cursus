@@ -6,11 +6,40 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 14:47:15 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/30 16:16:23 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/07/02 17:30:04 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
+
+int	scan_map(t_game *g)
+{
+	int	y;
+	int	x;
+
+	g->collectibles = 0;
+	g->collected = 0;
+	y = 0;
+	while (y < g->height)
+	{
+		if (!g->map[y])
+			return (write(2, "Error: Null line in map\n", 24), 0);
+		x = 0;
+		while (g->map[y][x] && x < g->width)
+		{
+			if (g->map[y][x] == 'P')
+			{
+				g->player_x = x;
+				g->player_y = y;
+			}
+			else if (g->map[y][x] == 'C')
+				g->collectibles++;
+			x++;
+		}
+		y++;
+	}
+	return (1);
+}
 
 static char	**copy_map(t_game *g)
 {
@@ -95,4 +124,3 @@ int	check_walls(t_game *g)
 	}
 	return (1);
 }
-

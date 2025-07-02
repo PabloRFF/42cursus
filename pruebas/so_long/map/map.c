@@ -6,11 +6,39 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 13:38:50 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/30 16:10:23 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/07/02 17:26:58 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
+
+static int	check_min_items(t_game *game)
+{
+	int	i;
+	int	j;
+	int	exits;
+	int	collectibles;
+
+	exits = 0;
+	collectibles = 0;
+	i = 0;
+	while (i < game->height)
+	{
+		j = 0;
+		while (j < game->width)
+		{
+			if (game->map[i][j] == 'E')
+				exits++;
+			if (game->map[i][j] == 'C')
+				collectibles++;
+			j++;
+		}
+		i++;
+	}
+	if (exits == 0 || collectibles == 0)
+		return (printf("Error: No exit or collectible\n"), 0);
+	return (1);
+}
 
 static int	read_map_lines(t_game *g, int fd)
 {
@@ -55,31 +83,37 @@ int	load_map(t_game *g, char *file)
 	return (1);
 }
 
-int	validate_map(t_game *game)
+static int	check_valid_chars(t_game *g)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < game->height)
+	while (i < g->height)
 	{
 		j = 0;
-		while (j < game->width)
+		while (j < g->width)
 		{
-			if (game->map[i][j] != '1' && game->map[i][j] != '0' &&
-				game->map[i][j] != 'C' && game->map[i][j] != 'E' &&
-				game->map[i][j] != 'P')
-			{
+			if (g->map[i][j] != '1' && g->map[i][j] != '0' &&
+				g->map[i][j] != 'C' && g->map[i][j] != 'E' &&
+				g->map[i][j] != 'P')
 				return (write(2, "Error: Invalid character in map\n", 32), 0);
-			}
 			j++;
 		}
 		i++;
 	}
+	return (1);
+}
+
+int	validate_map(t_game *game)
+{
+	if (!check_valid_chars(game))
+		return (0);
+	if (!check_min_items(game))
+		return (0);
 	if (!check_walls(game))
 		return (0);
 	if (!check_path(game))
 		return (0);
 	return (1);
 }
-

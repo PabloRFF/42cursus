@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 15:07:39 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/30 15:20:07 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/07/02 13:09:02 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 # include "../so_long.h"
 
 void	game_init(t_game *game);
+void	move_player(t_game *game, int dx, int dy);
 
 #endif

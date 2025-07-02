@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:03:15 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/30 15:49:05 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/07/02 17:30:52 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,16 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
+	game.moves = 0;
 	if (argc != 2)
-		return (write(2, "Uso: ./so_long mapa.ber\n", 25), 1);
+		return (write(2, "Uso: ./so_long <mapa.ber>\n", 27), 1);
 
 	if (!load_map(&game, argv[1]))
 		return (1);
-
+	if (!scan_map(&game))
+		return (free_map(game.map), 1);
+	if (!validate_map(&game))
+		return (free_map(game.map), 1);
 	game_init(&game);
 	return (0);
 }

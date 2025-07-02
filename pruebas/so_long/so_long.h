@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 13:41:38 by pablrome          #+#    #+#             */
-/*   Updated: 2025/07/01 14:24:53 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/07/02 17:05:51 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,10 @@ typedef struct s_game
 	int		height;
 	int		moves;
 	int		collectibles;
+	int		collected;
 	int		player_x;
 	int		player_y;
+	int		current_frame;
 
 	// Imágenes:
 	void	*img_floor;

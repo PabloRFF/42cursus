@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 14:20:47 by pablrome          #+#    #+#             */
-/*   Updated: 2025/06/30 15:50:00 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/07/02 17:06:14 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	game_init(t_game *g)
 	int	h;
 
 	g->mlx = mlx_init();
+	g->current_frame = 0;
 	if (!g->mlx)
 		exit(write(2, "Error: mlx_init failed\n", 23));
 
@@ -34,6 +35,7 @@ void	game_init(t_game *g)
 	load_images(g, &w, &h);
 	render_map(g);
 
+	mlx_key_hook(g->win, handle_input, g);
 	mlx_hook(g->win, 17, 0, close_game, g);
 	mlx_loop(g->mlx);
 }

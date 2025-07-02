@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:22:33 by pablrome          #+#    #+#             */
-/*   Updated: 2025/07/01 13:43:32 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/07/02 17:13:08 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	render_entity(t_game *g, char c, int x, int y)
 		if (!g->player_frames[0])
 			exit(printf("ERROR: Player image NULL\n"));
 		mlx_put_image_to_window(g->mlx, g->win,
-			g->player_frames[0], x * TILE_SIZE, y * TILE_SIZE);
+			g->player_frames[g->current_frame], x * TILE_SIZE, y * TILE_SIZE);
 	}
 	else if (c == 'C')
 	{
