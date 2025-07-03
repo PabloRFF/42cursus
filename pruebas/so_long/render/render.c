@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:22:33 by pablrome          #+#    #+#             */
-/*   Updated: 2025/07/02 17:13:08 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/07/03 16:18:33 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static void	put_wall(t_game *g, int x, int y)
 		img = g->walls[1];
 	else
 		img = g->walls[0];
-
 	if (!img)
 	{
 		printf("ERROR: Wall image is NULL at (%d,%d)\n", x, y);

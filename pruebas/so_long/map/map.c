@@ -6,37 +6,30 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 13:38:50 by pablrome          #+#    #+#             */
-/*   Updated: 2025/07/02 17:26:58 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/07/03 16:18:03 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
 
-static int	check_min_items(t_game *game)
+int	check_min_items(t_game *g)
 {
-	int	i;
-	int	j;
 	int	exits;
 	int	collectibles;
+	int	players;
 
 	exits = 0;
 	collectibles = 0;
-	i = 0;
-	while (i < game->height)
-	{
-		j = 0;
-		while (j < game->width)
-		{
-			if (game->map[i][j] == 'E')
-				exits++;
-			if (game->map[i][j] == 'C')
-				collectibles++;
-			j++;
-		}
-		i++;
-	}
-	if (exits == 0 || collectibles == 0)
-		return (printf("Error: No exit or collectible\n"), 0);
+	players = 0;
+	count_items(g, &exits, &collectibles, &players);
+	if (exits == 0)
+		return (write(2, "Error: No exit in map\n", 23), 0);
+	if (collectibles == 0)
+		return (write(2, "Error: No collectibles in map\n", 31), 0);
+	if (players == 0)
+		return (write(2, "Error: No player in map\n", 24), 0);
+	if (players > 1)
+		return (write(2, "Error: Multiple players in map\n", 32), 0);
 	return (1);
 }
 

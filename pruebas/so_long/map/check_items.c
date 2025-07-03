@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input.c                                            :+:      :+:    :+:   */
+/*   check_items.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/02 12:51:10 by pablrome          #+#    #+#             */
-/*   Updated: 2025/07/03 16:16:50 by pablrome         ###   ########.fr       */
+/*   Created: 2025/07/03 16:08:00 by pablrome          #+#    #+#             */
+/*   Updated: 2025/07/03 16:09:32 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "events.h"
+#include "so_long.h"
 
-int	handle_input(int keycode, t_game *g)
+void	count_items(t_game *g, int *exits, int *collectibles, int *players)
 {
-	if (keycode == 65307)
-		close_game(g);
-	else if (keycode == 119)
-		move_player(g, 0, -1);
-	else if (keycode == 115)
-		move_player(g, 0, 1);
-	else if (keycode == 97)
-		move_player(g, -1, 0);
-	else if (keycode == 100)
-		move_player(g, 1, 0);
-	return (0);
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < g->height)
+	{
+		j = 0;
+		while (j < g->width)
+		{
+			if (g->map[i][j] == 'E')
+				(*exits)++;
+			else if (g->map[i][j] == 'C')
+				(*collectibles)++;
+			else if (g->map[i][j] == 'P')
+			{
+				(*players)++;
+				g->player_x = j;
+				g->player_y = i;
+			}
+			j++;
+		}
+		i++;
+	}
 }

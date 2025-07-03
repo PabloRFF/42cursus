@@ -6,13 +6,11 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:03:15 by pablrome          #+#    #+#             */
-/*   Updated: 2025/07/02 17:30:52 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/07/03 16:19:25 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-// #include "map/map.h"
-// #include "game/game.h"
 
 int	check_extension(char *filename)
 {
@@ -24,21 +22,6 @@ int	check_extension(char *filename)
 	return (ft_strncmp(filename + len - 4, ".ber", 4) == 0);
 }
 
-
-// int	main(int argc, char **argv)
-// {
-// 	t_game	game;
-
-// 	if (argc != 2 || !check_extension(argv[1]))
-// 		return (write(2, "Error\nUso: ./so_long mapa.ber\n", 31), 1);
-// 	if (!load_map(&game, argv[1]))
-// 		return (1);
-// 	if (!validate_map(&game))
-// 		return (free_map(game.map), 1);
-// 	game_init(&game);
-// 	return (0);
-// }
-
 int	main(int argc, char **argv)
 {
 	t_game	game;
@@ -46,7 +29,6 @@ int	main(int argc, char **argv)
 	game.moves = 0;
 	if (argc != 2)
 		return (write(2, "Uso: ./so_long <mapa.ber>\n", 27), 1);
-
 	if (!load_map(&game, argv[1]))
 		return (1);
 	if (!scan_map(&game))
