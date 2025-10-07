@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.h                                              :+:      :+:    :+:   */
+/*   game_struct.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 13:41:05 by pablrome          #+#    #+#             */
-/*   Updated: 2025/07/03 18:47:42 by pablrome         ###   ########.fr       */
+/*   Created: 2025/07/03 18:54:50 by pablrome          #+#    #+#             */
+/*   Updated: 2025/07/03 18:54:58 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_H
-# define MAP_H
+#ifndef GAME_STRUCT_H
+# define GAME_STRUCT_H
 
-# include "../so_long.h"
+# define TILE_SIZE 64
 
-int		load_map(t_game *game, char *file);
-int		validate_map(t_game *game);
-int		check_walls(t_game *game);
-int		check_path(t_game *game);
-int		scan_map(t_game *game);
-void	count_items(t_game *game, int *exits, int *collectibles, int *players);
+typedef struct s_game
+{
+	void	*mlx;
+	void	*win;
+	char	**map;
+	int		width;
+	int		height;
+	int		moves;
+	int		collectibles;
+	int		collected;
+	int		player_x;
+	int		player_y;
+	int		current_frame;
+	void	*img_floor;
+	void	*img_exit;
+	void	*img_collectible;
+	void	*walls[2];
+	void	*player_frames[2];
+}	t_game;
 
 #endif

@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.h                                              :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 13:41:05 by pablrome          #+#    #+#             */
-/*   Updated: 2025/07/03 18:47:42 by pablrome         ###   ########.fr       */
+/*   Created: 2025/03/04 18:58:41 by pablrome          #+#    #+#             */
+/*   Updated: 2025/03/27 17:08:39 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_H
-# define MAP_H
+#include "ft_printf.h"
 
-# include "../so_long.h"
+int	ft_putnbr(int n)
+{
+	int	len;
 
-int		load_map(t_game *game, char *file);
-int		validate_map(t_game *game);
-int		check_walls(t_game *game);
-int		check_path(t_game *game);
-int		scan_map(t_game *game);
-void	count_items(t_game *game, int *exits, int *collectibles, int *players);
-
-#endif
+	len = 0;
+	if (n == -2147483648)
+	{
+		ft_putchar('-');
+		ft_putchar('2');
+		n = 147483648;
+		len += 2;
+	}
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n = -n;
+		len++;
+	}
+	if (n > 9)
+	{
+		len += ft_putnbr(n / 10);
+	}
+	ft_putchar(n % 10 + '0');
+	len++;
+	return (len);
+}

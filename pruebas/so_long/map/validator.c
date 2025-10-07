@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 14:47:15 by pablrome          #+#    #+#             */
-/*   Updated: 2025/07/02 17:30:04 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/07/03 19:13:43 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	check_path(t_game *game)
 		while (j < game->width)
 		{
 			if (map_copy[i][j] == 'C' || map_copy[i][j] == 'E')
-				return (printf("Erorr: No solution\n"), free_map(map_copy), 0);
+				return (ft_printf("FAIL:No solution\n"), free_map(map_copy), 0);
 			j++;
 		}
 		i++;

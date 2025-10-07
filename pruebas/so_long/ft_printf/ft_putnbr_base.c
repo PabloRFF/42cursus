@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.h                                              :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 13:41:05 by pablrome          #+#    #+#             */
-/*   Updated: 2025/07/03 18:47:42 by pablrome         ###   ########.fr       */
+/*   Created: 2025/03/04 19:36:35 by pablrome          #+#    #+#             */
+/*   Updated: 2025/03/27 17:59:10 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_H
-# define MAP_H
+#include "ft_printf.h"
 
-# include "../so_long.h"
+int	ft_putnbr_base(size_t n, char *base)
+{
+	size_t		len;
+	size_t		base_len;
+	char		c;
 
-int		load_map(t_game *game, char *file);
-int		validate_map(t_game *game);
-int		check_walls(t_game *game);
-int		check_path(t_game *game);
-int		scan_map(t_game *game);
-void	count_items(t_game *game, int *exits, int *collectibles, int *players);
-
-#endif
+	len = 0;
+	base_len = 0;
+	while (base[base_len] != '\0')
+		base_len++;
+	if (base_len < 2)
+		return (0);
+	if (n >= (unsigned int)base_len)
+		len += ft_putnbr_base(n / base_len, base);
+	c = base[n % base_len];
+	write(1, &c, 1);
+	return (len + 1);
+}

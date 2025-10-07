@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:22:33 by pablrome          #+#    #+#             */
-/*   Updated: 2025/07/03 16:18:33 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/07/03 19:12:32 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	put_wall(t_game *g, int x, int y)
 		img = g->walls[0];
 	if (!img)
 	{
-		printf("ERROR: Wall image is NULL at (%d,%d)\n", x, y);
+		ft_printf("ERROR: Wall image is NULL at (%d,%d)\n", x, y);
 		exit(1);
 	}
 	mlx_put_image_to_window(g->mlx, g->win, img, x * TILE_SIZE, y * TILE_SIZE);
@@ -35,21 +35,21 @@ static void	render_entity(t_game *g, char c, int x, int y)
 	if (c == 'P')
 	{
 		if (!g->player_frames[0])
-			exit(printf("ERROR: Player image NULL\n"));
+			exit(ft_printf("ERROR: Player image NULL\n"));
 		mlx_put_image_to_window(g->mlx, g->win,
 			g->player_frames[g->current_frame], x * TILE_SIZE, y * TILE_SIZE);
 	}
 	else if (c == 'C')
 	{
 		if (!g->img_collectible)
-			exit(printf("ERROR: Collectible image NULL\n"));
+			exit(ft_printf("ERROR: Collectible image NULL\n"));
 		mlx_put_image_to_window(g->mlx, g->win,
 			g->img_collectible, x * TILE_SIZE, y * TILE_SIZE);
 	}
 	else if (c == 'E')
 	{
 		if (!g->img_exit)
-			exit(printf("ERROR: Exit image NULL\n"));
+			exit(ft_printf("ERROR: Exit image NULL\n"));
 		mlx_put_image_to_window(g->mlx, g->win,
 			g->img_exit, x * TILE_SIZE, y * TILE_SIZE);
 	}

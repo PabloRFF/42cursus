@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.h                                              :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 13:41:05 by pablrome          #+#    #+#             */
-/*   Updated: 2025/07/03 18:47:42 by pablrome         ###   ########.fr       */
+/*   Created: 2025/09/30 14:04:15 by pablrome          #+#    #+#             */
+/*   Updated: 2025/09/30 14:04:32 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_H
-# define MAP_H
+#include "philo.h"
 
-# include "../so_long.h"
+int	main(int argc, char **argv)
+{
+	t_table	*table;
 
-int		load_map(t_game *game, char *file);
-int		validate_map(t_game *game);
-int		check_walls(t_game *game);
-int		check_path(t_game *game);
-int		scan_map(t_game *game);
-void	count_items(t_game *game, int *exits, int *collectibles, int *players);
+	table = init_table(argc, argv);
+	if (!table)
+		return (1);
+	init_threads(table);
 
-#endif
+	/* join monitor (god) */
+	pthread_join(table->god, NULL);
+
+	/* join philosophers threads */
+	for (int i = 0; i < table->philos_nb; i++)
+		pthread_join(table->philos[i]->thread_id, NULL);
+
+	cleanup(table);
+	return (0);
+}

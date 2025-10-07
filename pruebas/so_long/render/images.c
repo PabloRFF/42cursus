@@ -6,12 +6,11 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 16:22:29 by pablrome          #+#    #+#             */
-/*   Updated: 2025/07/03 16:18:22 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/07/03 18:53:40 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
-#include "../events/events.h"
 
 void	load_images(t_game *g, int *w, int *h)
 {

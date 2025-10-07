@@ -6,14 +6,11 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 14:20:47 by pablrome          #+#    #+#             */
-/*   Updated: 2025/07/03 16:17:31 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/07/03 18:53:13 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
-// #include "render/render.h"
-// #include "map/map.h"
-// #include "utils/utils.h"
 
 void	game_init(t_game *g)
 {

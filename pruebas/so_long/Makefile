@@ -8,7 +8,7 @@ NAME = so_long
 # Directories & Files
 # ------------------------------
 
-SRC_DIRS = . game map render events utils
+SRC_DIRS = . game map render events utils ft_printf
 SRCS = $(wildcard $(addsuffix /*.c, $(SRC_DIRS)))
 OBJS = $(patsubst %.c,%.o,$(SRCS))
 

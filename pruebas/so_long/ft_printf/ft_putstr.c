@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.h                                              :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 13:41:05 by pablrome          #+#    #+#             */
-/*   Updated: 2025/07/03 18:47:42 by pablrome         ###   ########.fr       */
+/*   Created: 2025/03/20 18:43:50 by pablrome          #+#    #+#             */
+/*   Updated: 2025/03/27 17:30:56 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_H
-# define MAP_H
+#include "ft_printf.h"
 
-# include "../so_long.h"
+int	ft_putstr(char *str)
+{
+	int	len;
 
-int		load_map(t_game *game, char *file);
-int		validate_map(t_game *game);
-int		check_walls(t_game *game);
-int		check_path(t_game *game);
-int		scan_map(t_game *game);
-void	count_items(t_game *game, int *exits, int *collectibles, int *players);
-
-#endif
+	len = 0;
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	while (str[len] != '\0')
+	{
+		ft_putchar(str[len]);
+		len++;
+	}
+	return (len);
+}

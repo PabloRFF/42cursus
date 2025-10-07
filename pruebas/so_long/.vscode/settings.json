@@ -11,6 +11,8 @@
         "render.h": "c",
         "mlx_int.h": "c",
         "game.h": "c",
-        "xlib.h": "c"
+        "xlib.h": "c",
+        "game_struct.h": "c",
+        "ft_printf.h": "c"
     }
 }

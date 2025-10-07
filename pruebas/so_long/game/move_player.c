@@ -6,7 +6,7 @@
 /*   By: pablrome <pablrome@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 12:59:35 by pablrome          #+#    #+#             */
-/*   Updated: 2025/07/03 15:47:01 by pablrome         ###   ########.fr       */
+/*   Updated: 2025/07/03 19:14:24 by pablrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ static int	handle_tile(t_game *g, int new_x, int new_y)
 	{
 		g->collected++;
 		g->map[new_y][new_x] = '0';
-		printf("Collectibles: %d/%d\n", g->collected, g->collectibles);
+		ft_printf("Collectibles: %d/%d\n", g->collected, g->collectibles);
 	}
 	if (tile == 'E')
 	{
 		if (g->collected == g->collectibles)
 		{
-			printf("¡Has ganado! Todos los coleccionables recogidos.\n");
+			ft_printf("¡Has ganado! Todos los coleccionables recogidos.\n");
 			close_game(g);
 		}
 		else
 		{
-			printf("¡Aún quedan coleccionables!\n");
+			ft_printf("¡Aún quedan coleccionables!\n");
 			return (0);
 		}
 	}
@@ -58,6 +58,6 @@ void	move_player(t_game *g, int dx, int dy)
 	g->player_y = new_y;
 	g->moves++;
 	g->current_frame = (g->current_frame + 1) % 2;
-	printf("Moves: %d\n", g->moves);
+	ft_printf("Moves: %d\n", g->moves);
 	render_map(g);
 }
