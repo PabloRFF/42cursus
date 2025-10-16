@@ -1,8 +1,8 @@
 #include "philo.h"
 
-void cleanup(t_rules *rules)
+void	cleanup(t_rules *rules)
 {
-	int i;
+	int	i;
 
 	pthread_mutex_destroy(&rules->print_lock);
 	pthread_mutex_destroy(&rules->state_lock);

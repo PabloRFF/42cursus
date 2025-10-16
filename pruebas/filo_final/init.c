@@ -1,25 +1,35 @@
-#include "philo.h"
+ #include "philo.h"
 
 static int	ft_atoi(const char *str)
 {
-	long	n = 0;
+	long	n;
+
+	n = 0;
 	while (*str >= '0' && *str <= '9')
 		n = n * 10 + (*str++ - '0');
 	return ((int)n);
 }
 
-int	init_all(t_rules *rules, int argc, char **argv)
+static int	init_rules_values(t_rules *rules, int argc, char **argv)
 {
-	int	i;
-
 	rules->nb_philos = ft_atoi(argv[1]);
 	rules->time_die = ft_atoi(argv[2]);
 	rules->time_eat = ft_atoi(argv[3]);
 	rules->time_sleep = ft_atoi(argv[4]);
-	rules->nb_meals = (argc == 6) ? ft_atoi(argv[5]) : -1;
+	if (argc == 6)
+		rules->nb_meals = ft_atoi(argv[5]);
+	else
+		rules->nb_meals = -1;
 	rules->someone_died = 0;
 	rules->all_ate = 0;
 	rules->start_time = timestamp();
+	return (1);
+}
+
+static int	init_mutexes(t_rules *rules)
+{
+	int	i;
+
 	rules->forks = malloc(sizeof(pthread_mutex_t) * rules->nb_philos);
 	rules->philos = malloc(sizeof(t_philo) * rules->nb_philos);
 	if (!rules->forks || !rules->philos)
@@ -29,6 +39,13 @@ int	init_all(t_rules *rules, int argc, char **argv)
 	i = -1;
 	while (++i < rules->nb_philos)
 		pthread_mutex_init(&rules->forks[i], NULL);
+	return (1);
+}
+
+static void	init_philos(t_rules *rules)
+{
+	int	i;
+
 	i = -1;
 	while (++i < rules->nb_philos)
 	{
@@ -40,5 +57,14 @@ int	init_all(t_rules *rules, int argc, char **argv)
 		rules->philos[i].r_fork = &rules->forks[(i + 1) % rules->nb_philos];
 		rules->philos[i].rules = rules;
 	}
+}
+
+int	init_all(t_rules *rules, int argc, char **argv)
+{
+	if (!init_rules_values(rules, argc, argv))
+		return (0);
+	if (!init_mutexes(rules))
+		return (0);
+	init_philos(rules);
 	return (1);
 }

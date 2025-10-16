@@ -40,19 +40,25 @@ typedef struct s_rules
 // init.c
 int         init_all(t_rules *rules, int argc, char **argv);
 
+// routine_utils.c
+void        take_forks(t_philo *philo);
+void        release_forks(t_philo *philo);
+void        philo_eat(t_philo *philo);
+int         check_end(t_rules *rules);
+
 // routine.c
-void        *philo_routine(void *arg);
+void		*philo_routine(void *arg);
 
 // monitor.c
-void        *monitor_routine(void *arg);
+void		*monitor_routine(void *arg);
 
 // utils.c
-long long   timestamp(void);
-void        ms_sleep(long long ms);
-void        print_action(t_rules *rules, int id, char *msg);
+long long	timestamp(void);
+void		ms_sleep(long long ms);
+void		print_action(t_rules *rules, int id, char *msg);
 
 // cleanup.c
-void        cleanup(t_rules *rules);
+void		cleanup(t_rules *rules);
 
 #endif
 
