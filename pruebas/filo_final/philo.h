@@ -39,6 +39,7 @@ typedef struct s_rules
 
 // init.c
 int         init_all(t_rules *rules, int argc, char **argv);
+int			ft_atoi(char *str);
 
 // routine_utils.c
 void        take_forks(t_philo *philo);
@@ -56,6 +57,7 @@ void		*monitor_routine(void *arg);
 long long	timestamp(void);
 void		ms_sleep(long long ms);
 void		print_action(t_rules *rules, int id, char *msg);
+int			check_args_numbers(int argc, char **argv);
 
 // cleanup.c
 void		cleanup(t_rules *rules);

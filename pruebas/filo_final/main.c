@@ -12,6 +12,8 @@ int	main(int argc, char **argv)
 			argv[0]);
 		return (1);
 	}
+	if (argc == 6 && ft_atoi(argv[5]) <= 0)
+		return (printf("ERROR: nb_meals debe ser un entero positivo\n"), 1);
 	if (!init_all(&rules, argc, argv))
 		return (1);
 	i = -1;

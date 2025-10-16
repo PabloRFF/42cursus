@@ -1,13 +1,29 @@
  #include "philo.h"
 
-static int	ft_atoi(const char *str)
+int	ft_atoi(char *str)
 {
-	long	n;
+	int	i;
+	int	sign;
+	int	result;
 
-	n = 0;
-	while (*str >= '0' && *str <= '9')
-		n = n * 10 + (*str++ - '0');
-	return ((int)n);
+	i = 0;
+	sign = 1;
+	result = 0;
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
+		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + str[i] - '0';
+		i++;
+	}
+	return (result * sign);
 }
 
 static int	init_rules_values(t_rules *rules, int argc, char **argv)
@@ -61,6 +77,11 @@ static void	init_philos(t_rules *rules)
 
 int	init_all(t_rules *rules, int argc, char **argv)
 {
+	if (!check_args_numbers(argc, argv))
+	{
+		printf("ERROR: Todos los argumentos deben ser enteros positivos\n");
+		return (0);
+	}
 	if (!init_rules_values(rules, argc, argv))
 		return (0);
 	if (!init_mutexes(rules))

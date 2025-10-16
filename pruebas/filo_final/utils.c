@@ -1,6 +1,30 @@
 #include "philo.h"
 #include <string.h>
 
+int check_args_numbers(int argc, char **argv)
+{
+	int i;
+	int j;
+
+	i = 1;
+	while(i < argc)
+	{
+		j = 0;
+		if (argv[i][j] == '-' || argv[i][j] == '+')
+			j++;
+		if (argv[i][j] == '\0') // string vacio o solo signo
+			return (0);
+		while (argv[i][j])
+		{
+			if (argv[i][j] < '0' || argv[i][j] > '9')
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
 long long	timestamp(void)
 {
 	struct timeval	tv;
